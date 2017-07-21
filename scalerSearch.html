@@ -1,0 +1,155 @@
+<!-- 약어 정리
+
+b
+= body 의 b, 몸을 표현하기 위하여 사용
+s
+= search 의 s 검색을 표현하기 위해 사용
+
+bor
+= bord 의 bor
+
+ser
+=servlet
+
+check
+= 개인의 장학 관련 정보를 체크하는 부분을 묶은 div
+
+result
+= 체크한 정보만 묶어서 보여주는 div
+
+resultView
+= 체크한 정보가 실제로 보이는 공간
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>장학</title>
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+	<link rel="stylesheet" type="text/css" href="scalerSearch.css">
+</head>
+<body>
+
+	<div id="bTop" ><!-- html을 영역으로 나눈 부분 중 top부분(메뉴) start -->
+		<nav class="menu"><!-- nav start -->
+				<ul class="menu">
+					<li>
+						<a href="notic.jsp">공지사항</a>
+					</li>
+					<li>
+						<a href="scalership.jsp">장학정보</a>
+					</li>
+					<li>
+						<a href="cummunty.jsp">커뮤니티</a>
+					</li>
+					<li>
+						<a href="servicecenter.jsp">고객센터</a>
+					</li>
+					<li>
+						|
+					</li>
+					<li>
+						<a href="manual.html">장학 활용법</a>
+					</li>
+				</ul>
+			</nav><!-- nav end -->
+	</div><!-- html을 영역으로 나눈 부분 중 top부분(메뉴) end -->
+
+	<div id="bMiddle"><!-- html을 영역으로 나눈 부분 중 middle 부분(내용) start -->
+
+		<div id="scalerSearch">
+			<div class="sTop">
+				장학금 검색
+			</div>
+			<div class="sMiddle">
+				<div class="check">
+          <h3>필수</h3>
+          <div class="level">
+            <span>
+              학력
+            </span>
+            <select class="" name="">
+              <option value="">초졸</option>
+            </select>
+          </div>
+
+          <div class="grade">
+            <span>
+              학년
+            </span>
+            <select class="" name="">
+              <option value="">1학년</option>
+            </select>
+          </div>
+
+          <div class="score">
+            <span>
+              학점
+            </span>
+            <select class="" name="">
+              <option value="">0.0 ~ 1.0</option>
+            </select>
+          </div>
+
+          <div class="region">
+            <span>
+              지역
+            </span>
+            <select class="" name="">
+              <option value="">서울</option>
+            </select>
+          </div>
+
+          <h3>선택</h3>
+          <div class="nationBenefit">
+            <span>
+              국가 수혜자
+            </span>
+            <select class="" name="">
+              <option value="">예</option>
+            </select>
+          </div>
+
+          <div class="incomeLevel">
+            <span>
+              소득분위
+            </span>
+            <select class="" name="">
+              <option value="">1분위</option>
+            </select>
+          </div>
+
+				</div>
+        <div class="result">
+          <h3>나의 장학정보</h3>
+          <div class="resultView">
+            선택한 정보가 보입니다.
+          </div>
+          <button type="button" onclick="location.href='#'">결과보기</button>
+        </div>
+
+			</div>
+		</div>
+
+		<div id="bord">
+			<div class="notic">
+				<a href="notic.jsp">공지사항</a>
+			</div>
+			<div class="scalership">
+				<a href="scalership.jsp">장학정보</a>
+			</div>
+			<div class="community">
+				<a href="cummunty.jsp">커뮤니티</a>
+			</div>
+		</div>
+
+		<div>
+			<iframe src="borView.jsp">
+			</iframe>
+		</div>
+	</div><!-- html을 영역으로 나눈 부분 중 middle부분(내용) end -->
+</body>
+</html>

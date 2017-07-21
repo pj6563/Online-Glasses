@@ -1,0 +1,102 @@
+<!-- 약어 정리
+
+b
+= body 의 b, 몸을 표현하기 위하여 사용
+s
+= search 의 s 검색을 표현하기 위해 사용
+
+bor
+= bord 의 bor
+
+ser
+=servlet
+
+notiTable
+= notice div의 내용이 출력되는 table
+
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>장학</title>
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+	<link rel="stylesheet" type="text/css" href="notice.css">
+</head>
+<body>
+
+	<div id="bTop" ><!-- html을 영역으로 나눈 부분 중 top부분(메뉴) start -->
+		<nav class="menu"><!-- nav start -->
+				<ul class="menu">
+					<li>
+						<a href="notic.jsp">공지사항</a>
+					</li>
+					<li>
+						<a href="scalership.jsp">장학정보</a>
+					</li>
+					<li>
+						<a href="cummunty.jsp">커뮤니티</a>
+					</li>
+					<li>
+						<a href="servicecenter.jsp">고객센터</a>
+					</li>
+					<li>
+						|
+					</li>
+					<li>
+						<a href="manual.html">장학 활용법</a>
+					</li>
+				</ul>
+			</nav><!-- nav end -->
+	</div><!-- html을 영역으로 나눈 부분 중 top부분(메뉴) end -->
+
+	<div id="bMiddle"><!-- html을 영역으로 나눈 부분 중 middle 부분(내용) start -->
+
+		<div id="notice">
+			<div class="sTop">
+				공지사항
+			</div>
+			<div class="sMiddle">
+				<table id='notiTable' style="border:0.5px solid red;">
+						<tr>
+							<th>번호
+							<th>제목
+							<th>작성자
+							<th>작성일시
+							<th>조회수
+						</tr>
+
+						<tr>
+							<td>test1
+							<td>test1
+							<td>test1
+							<td>test1
+							<td>test1
+						</tr>
+				</table>
+				<button type="button" onclick="location.href='#'">등록</button>
+			</div>
+		</div>
+
+		<div id="bord">
+			<div class="notic">
+				<a href="notic.jsp">공지사항</a>
+			</div>
+			<div class="scalership">
+				<a href="scalership.jsp">장학정보</a>
+			</div>
+			<div class="community">
+				<a href="cummunty.jsp">커뮤니티</a>
+			</div>
+		</div>
+
+		<div>
+			<iframe src="borView.jsp">
+			</iframe>
+		</div>
+	</div><!-- html을 영역으로 나눈 부분 중 middle부분(내용) end -->
+</body>
+</html>

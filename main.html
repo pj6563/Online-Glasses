@@ -1,0 +1,178 @@
+<!-- 약어 정리
+
+b
+= body 의 b, 몸을 표현하기 위하여 사용
+s
+= search 의 s 검색을 표현하기 위해 사용
+
+bor
+= bord 의 bor
+
+ser
+=servlet
+
+sen
+= send
+ -->
+<!-- <%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.sql.*"%> -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>장학</title>
+	    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="index.js" ></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	    <link rel="stylesheet" type="text/css" href="indCss.css">
+	</head>
+	<body>
+
+		<div id="bTop" ><!-- html을 영역으로 나눈 부분 중 top부분(메뉴) start -->
+			<nav class="header"><!-- nav start -->
+          <div class="brand"><!-- brand start(header중 로고, 로그인, 검색 포함)-->
+            <span class="brandLogo">
+              <img src="Jbis Logo.png" alt="청춘장학사">
+            </span>
+            <div class="login" style="margin-top:1%;"><!-- login start-->
+              <a href="#">회원가입</a>
+               |
+              <a href="#">로그아웃</a>
+               |
+              <a href="#">김단이님, 반갑습니다</a>
+               |
+              <a href="#">나의 장학금 신청현황 바로가기</a>
+              <div class="search" style="margin-top:1%;"><!-- search start-->
+                <form class="searchForm" action="#" method="post">
+                  <input type="text" name="" value="">
+                </form>
+              </div><!-- search start-->
+            </div><!-- login end-->
+          </div><!-- brand end-->
+
+			    <ul class="menu"><!-- menu start(header중 각 메뉴들 포함) -->
+				    <li style="margin-left:0; margin-right:4.3%;">
+				    	<a href="notic.jsp">공지사항</a>
+				    </li>
+				    <li>
+				    	<a href="scalership.jsp">장학정보</a>
+				    </li>
+				    <li>
+				    	<a href="cummunty.jsp">커뮤니티</a>
+				    </li>
+            <li>
+				    	<a href="cummunty.jsp">정보공개</a>
+				    </li>
+				    <li>
+				    	<a href="servicecenter.jsp">고객센터</a>
+				    </li>
+				    	|
+				    <li>
+				    	<a href="manual.html">청춘장학사</a>
+				    </li>
+            <li style="margin-left:4.3%; margin-right:0; ">
+				    	<a href="manual.html">청춘장학사 활용법</a>
+				    </li>
+			    </ul><!-- menu end -->
+		    </nav><!-- nav end -->
+		</div><!-- html을 영역으로 나눈 부분 중 top부분(메뉴) end -->
+
+		<div id="bMiddle"><!-- html을 영역으로 나눈 부분 중 middle 부분(내용) start -->
+
+			<div id="scholarSearch"><!-- scholarSearch start -->
+				<div class="sTop"><!-- sTop start -->
+					<div class="floater">
+					</div>
+					<div class="sTopTitle">
+						나에게 딱! 맞는 장학금 찾기
+					</div>
+				</div><!-- sTop end -->
+
+				<div class="sMiddle"><!-- sMiddle start -->
+					<div class="floater">
+					</div>
+					<div class="sMiddleContent">
+						<form action="#">
+							검색 1 검색 2 검색 3
+							<button type="submit" value="검색">검색</button>
+						</form>
+					</div>
+				</div><!-- sMiddle end -->
+			</div><!-- scholarSearch end -->
+
+			<div id="board"><!-- board start -->
+				<div class="notice" onmouseover="senBorView"><!-- notice start -->
+					<div class="notiTitle"><!-- notiTitle start -->
+						<div class="title">
+							<a href="notic.jsp">청춘장학사 공지사항</a>
+						</div>
+						<div class="title">
+							<a href="scalership.jsp">신규 장학소식</a>
+						</div>
+					</div><!-- notiTitle end -->
+				</div><!-- notice end -->
+
+				<div class="community"><!-- community start -->
+					<div class="commuTitle">
+						<span style="float:left;">커뮤니티</span>
+						<span style="float:right;">더보기</span>
+					</div>
+
+					<hr style="margin:2% auto;">
+
+					<div class="commuList"><!-- commuList start -->
+						<table>
+							<tr>
+								<td>
+									<div class="list">
+										<div class="num">1</div>
+										<div class="img">
+											<img src="JBis Logo.png" alt="">
+										</div>
+										<div class="text">
+											<div class="listTitle">
+												제목
+											</div>
+											<div class="listInfo">
+												이름 | 날짜 | 조회수
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<div class="list">
+										<div class="num">1</div>
+										<div class="img">
+											<img src="JBis Logo.png" alt="">
+										</div>
+										<div class="text">
+											<div class="listTitle">
+												제목
+											</div>
+											<div class="listInfo">
+												이름 | 날짜 | 조회수
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div><!-- commuList start -->
+				</div><!-- community end -->
+			</div><!-- board end -->
+
+			<div class= "box">
+				<iframe src="borViewSer.jsp">
+				</iframe>
+			</div>
+
+		</div><!-- html을 영역으로 나눈 부분 중 middle부분(내용) end -->
+	</body>
+</html>

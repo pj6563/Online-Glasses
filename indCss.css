@@ -1,4 +1,8 @@
 @charset "utf-8";
+/** {
+	margin: 0;
+	padding: 0;
+}*/
 
 html,body{
 	height: 100%;
@@ -8,7 +12,7 @@ html,body{
 }
 
 #bTop {
-	height: 10%;
+	height: 15%;
 	width: 100%;
 	background-color: green;
 	text-align: center;
@@ -19,20 +23,33 @@ nav{
 	height: 100%;
 	background-color: white;
 	vertical-align: middle;
-	text-align: center;   
+}
+nav .brand {
+	height : 70%;
+	background-color: skyblue;
+	padding: 0 15%;
+}
+.brandLogo img {
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+.login{
+	float: right;
+}
+.searchForm {
+	float: right;
 }
 nav ul{
 	margin : auto;
-	margin-top : 1em;
-	width: 90%;
-	height : 70%;
+	height : 30%;
+	padding: 0 15%;
 	background-color: gold;
 	vertical-align: middle;
-	text-align: center; 
+	text-align: center;
 }
 .menu li {
-	margin : auto;
-	margin-top : 100px;
+	margin : 0 4.3%;
 	display: inline;
 	background-color: yellow;
 	vertical-align: middle;
@@ -54,50 +71,112 @@ background-color: black;
 #bMiddle {
 	height: 90%;
 	width: 100%;
-	background-color: gray;s
-	
+	background-color: gray;
+
 }
 
-#search{
-	margin: auto;
-	width: 400px;
-	height : 300px;
-	background-color: white;
-	vertical-align: middle;
+
+#scholarSearch{
+	margin: 1% auto;
+	width: 70%;
+	height : 30%;
+	//line-height: 200px;
+	//vertical-align: middle;
 	text-align: center;
 }
 
-#search div{
+#scholarSearch div{
 	width: 100%;
-	vertical-align: middle;
-	text-align: center;
+	/*vertical-align: middle;
+	text-align: center;*/
 }
 
 .sTop{
 	background-color: green;
-	height: 50px;
+	height: 20%;
 }
 
 .sMiddle{
 	background-color: blue;
-	height: 250px;	
+	height: 80%;
 }
 
-#bord{
-	margin: auto;
-	width: 400px;
-	height : 300px;
+/*div 내 수직 가운데 정렬 방법은 여러가지 있으나 각자 장단점이 있고
+가장 최신의 방법으로 display:flex가 있으나 적용되지 않는 브라우저가 있다는 단점이 있음*/
+.floater {
+	height: 40%;
+}
+
+#board{
+	margin: 1% auto;
+	width: 70%;
+	height : 45%;
 	background-color: white;
 	vertical-align: middle;
 	text-align: center;
-	
+
 }
-#bord div{
+#board .notice {
 	float: left;
-	width: 33%;
-	padding:10px;
+	width: 66%;
 	border: 1px solid blue;
-	
+}
+
+.notice .notiTitle {
+	width: 100%;
+	height: 5%;
+	border: 1px solid black;
+}
+
+.notiTitle .title {
+	display: inline-block;
+	width: 49%;
+	text-align: center;
+	border: 1px solid black;
+}
+
+#board .community {
+	float: right;
+	width: 33%;
+	height: 100%;
+	padding: 10px;
+	border: 1px solid blue;
+}
+
+.community .commuTitle {
+	height: 5%;
+}
+
+.community .commuList .list {
+	width: 100%;
+	height: 8%;
+	//padding: 5px;
+	border: 1px solid black;
+}
+
+.list .num, .img, .text {
+	display: inline-block;
+	border: 1px solid black;
+}
+
+.list .num {
+	width: 5%;
+	height: 100%;
+}
+
+.list .img {
+	width: 15%;
+	height: 100%;
+}
+
+.list .img img{
+	width: 100%;
+	height: 100%;
+}
+
+.list .text {
+	width: 75%;
+	height: 100%;
 }
 
 iframe {

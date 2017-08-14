@@ -1,0 +1,132 @@
+@CHARSET "UTF-8";
+
+@font-face { font-family: 'arita', src:url(./fonts/AritaDotumMedium.eot)};
+@font-face { font-family: 'arita', src:url(./fonts/AritaDotumMedium.woff)};
+
+@media all and ( min-width: 1920px ) {
+  html, body {
+	min-height: 1080px;
+	}
+}
+@media all and ( min-width: 480px ) {
+	html, body {
+		min-height: 740px;
+	}
+}
+html,body{
+	width: 100%;
+ 	height: 100%;
+}
+
+body {
+  font-family: '아리따-돋움(TTF)', aritadm, arial, sans-serif;
+  width: 100%;
+  height: 100%;
+}
+.navbar {
+  background-color: white;
+  margin: 0;
+  font-weight: bold;
+}
+.collapse {
+  margin: 3px 0 ;
+}
+.menu {
+  font-size: 2vmin;
+}
+
+.navbar-brand {
+  margin: 0;
+  padding: 0;
+}
+#navMenu {
+  width: 70%;
+}
+#navMenu a:hover, #loginMenu a:hover {
+  color : #0070af;
+}
+#loginMenu {
+  width: 8%;
+}
+#loginMenu a {
+  text-align: right;
+}
+.nav li {
+  padding: 0 2%;
+}
+.middle {
+
+	width: 100%;
+	height: 70%;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	text-align: center;
+
+}
+.bord{
+	margin:auto;
+	width: 70%;
+	height: 100%;
+	text-align: center;
+	padding-top: 5%;
+}
+
+table{
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	border: 10px;
+	margin: 0px;
+	border-bottom : 3px solid #0070af;
+}
+
+td,th{
+	text-align: left;
+	padding: 10px 20px 0px 10px;
+	border-bottom: 0.5px solid #0070af;
+}
+.textLeft{
+	text-align: left;
+	border: none;
+}
+
+.BBox{
+	text-align: right;
+
+}
+
+.writeB {
+	background-color:#0070af;
+	-moz-border-radius:13px;
+	-webkit-border-radius:13px;
+	border-radius:13px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:2ex;
+	padding:5px 10px;
+	text-decoration:none;
+}
+.writeB:hover {
+	background-color: #006EE6;
+	color: white;
+}
+.writeB:active {
+	position:relative;
+	top:1px;
+}
+
+.B{
+	text-align: right;
+}
+footer {
+  width: 100%;
+  height: 20%;
+  background-color: #34464b;
+  color: white;
+}
+
+
+

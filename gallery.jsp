@@ -43,7 +43,7 @@
                 </a>
               </li>
               <li class='menu'>
-                <a href="notic.jsp?Bname='scholaship'">
+                <a href="gallery.jsp">
                   장학정보
                 </a>
               </li>

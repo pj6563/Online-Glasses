@@ -8,7 +8,7 @@
     <title>bord</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="index.js" ></script>
+    <script type="text/javascript" src="./js/index.js" ></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/notic.css">
@@ -43,7 +43,7 @@
                 </a>
               </li>
               <li class='menu'>
-                <a href="notic.jsp?Bname='scholaship'">
+                <a href="gallery.jsp">
                   장학정보
                 </a>
               </li>
@@ -108,6 +108,8 @@
 				pstmt = conn.prepareStatement(sql);                          // prepareStatement에서 해당 sql을 미리 컴파일한다.
 				
 				
+				int countn =0;// 목록의 글 갯수 값 확인을 위한 숫자
+				
 				rs = pstmt.executeQuery();                                        // 쿼리를 실행하고 결과를 ResultSet 객체에 담는다.
 				while(rs.next()){ 
 					String title = rs.getString("title");
@@ -117,11 +119,13 @@
 					String hit = rs.getString("hit");
 					String number = rs.getString("count");
 					
+					countn += 1;
+					
 					
 				%>
-				
+					
 					<tr class="BContent">
-						<td class="number">1
+						<td class="number"><%=countn%>
 						<td class="title"><a href="view.jsp?number='<%=number%>'"><%=title%></a>
 						<td class="author"><%=author%>
 						<td class="date"><%=date%>
@@ -142,7 +146,7 @@
 			
 			<br>
 			<div class="BBox">  
-				<a href="write.jsp" class="writeB">글쓰기</a>
+				<a href="write.jsp?BName=<%=Bname%>" class="writeB">글쓰기</a>
 			</div>
 		</div>
 		<br>

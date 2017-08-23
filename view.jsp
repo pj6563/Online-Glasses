@@ -43,7 +43,7 @@
                 </a>
               </li>
               <li class='menu'>
-                <a href="notic.jsp?Bname='scholaship'">
+                <a href="gallery.jsp">
                   장학정보
                 </a>
               </li>
@@ -95,7 +95,7 @@
 						Class.forName("com.mysql.jdbc.Driver");                       // 데이터베이스와 연동하기 위해 DriverManager에 등록한다.
 						conn=DriverManager.getConnection(url,id,pw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
 						
-						String sql = ("select * from bord where count=1 ");                        // sql 쿼리
+						String sql = ("select * from bord where count="+number+" ");                        // sql 쿼리
 						pstmt = conn.prepareStatement(sql);                          // prepareStatement에서 해당 sql을 미리 컴파일한다.
 						
 						

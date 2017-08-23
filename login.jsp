@@ -8,7 +8,7 @@
     <title>Login</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="index.js" ></script>
+    <script type="text/javascript" src="./js/index.js" ></script>
 	<link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -44,7 +44,7 @@
                 </a>
               </li>
               <li class='menu'>
-                <a href="notic.jsp?Bname='scholaship'">
+                <a href="gallery.jsp">
                   장학정보
                 </a>
               </li>
@@ -75,13 +75,13 @@
 	<!-- 게시판 출력 start -->
     <div class="middle">
     	<div class="bord">
-	    	<form action="loginSer.jsp" method="get">
+	    	<form action="sessionLogin.jsp" method="get">
 				<table class="setTable">
 					<tr>
 						<th class="iName">ID
 						<th><input name="id" type="text" >
 						<th class="loginB" rowspan="2">
-								<a href="write.jsp" onclick="document.forms[0].submit();return false;" class="writeB">로그인</a>
+								<a href="sessionLogin.jsp" onclick="document.forms[0].submit();return false;" class="writeB">로그인</a>
 						</th>
 					</tr>
 					

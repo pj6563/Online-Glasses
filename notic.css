@@ -1,0 +1,179 @@
+@CHARSET "UTF-8";
+
+@font-face { font-family: 'arita', src:url(./fonts/AritaDotumMedium.eot)};
+@font-face { font-family: 'arita', src:url(./fonts/AritaDotumMedium.woff)};
+@media all and ( min-width: 1920px ) {
+  html, body {
+	min-height: 1080px;
+	}
+}
+@media all and ( min-width: 480px ) {
+	html, body {
+		min-height: 740px;
+	}
+}
+html{
+	width: 100%;
+  height: 100%;
+}
+body {
+  font-family: '아리따-돋움(TTF)', aritadm, arial, sans-serif;
+  width: 100%;
+  height: 100%;
+}
+.navbar {
+  background-color: white;
+  margin: 0;
+  font-weight: bold;
+}
+.collapse {
+  margin: 3px 0 ;
+}
+.menu {
+  font-size: 2vmin;
+}
+
+.navbar-brand {
+  margin: 0;
+  padding: 0;
+}
+#navMenu {
+  width: 70%;
+}
+#navMenu a:hover, #loginMenu a:hover {
+  color : #0070af;
+}
+#loginMenu {
+  width: 8%;
+}
+#loginMenu a {
+  text-align: right;
+}
+.nav li {
+  padding: 0 2%;
+}
+.middle {
+	width: 100%;
+	height: 70%;	
+	overflow-x:hidden;
+	overflow-y:hidden;
+	text-align: center;
+}
+.bord{
+	margin:auto;
+	width: 70%;
+}
+
+table{
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	border: 10px;
+	margin: 0px;
+	border-bottom : 3px solid #0070af;
+}
+th{
+	height: 20%;
+	padding: 10% 0% 5px 0%;
+	text-align: center;
+}
+.tFix .number{
+	width: 10%;
+	text-align: left;
+}
+.tFix .title{
+	width: 50%; 
+}
+.tFix .author{
+	width: 15%;
+}
+.tFix .date{
+	width: 15%;
+}
+.tFix .hit{
+	width: 10%;
+}
+
+td{
+		height: 20%;
+	padding-top: 1%;
+	text-align: center;
+}
+.BContent .number{
+	width: 10%;
+	text-align: left;
+}
+.BContent  .title{
+	width: 50%; 
+	text-align: left;
+}
+.BContent  .author{
+	width: 15%;
+}
+.BContent  .date{
+	width: 15%;
+}
+.BContent  .hit{
+	width: 10%;
+}
+
+
+
+.m_img1, .m_img2 {
+  width: 100%;
+  height: 50%;
+
+}
+.m_img1 h1, .m_img2 h1 {
+	color: white;	
+	margin-left:30%;
+	position: absolute;
+	
+	font-size: xx-large;
+}
+.m_img1 img, .m_img2 img {
+  width: 100%;
+  height: 100%;
+  
+  display: block;
+  margin-bottom: 0px;
+  padding: 0px;
+  
+}
+
+.BBox{
+	text-align: right;
+}
+
+.writeB {
+	background-color:#0070af;
+	-moz-border-radius:13px;
+	-webkit-border-radius:13px;
+	border-radius:13px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:2ex;
+	padding:5px 10px;
+	text-decoration:none;
+}
+.writeB:hover {
+	background-color: #006EE6;
+	color: white;
+}
+.writeB:active {
+	position:relative;
+	top:1px;
+}
+
+footer {
+  width: 100%;
+  height: 20%;
+  background-color: #34464b;
+  color: white;
+}
+
+
+

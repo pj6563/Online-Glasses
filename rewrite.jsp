@@ -20,7 +20,7 @@
       <nav class='navbar navbar-default'>
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class='navbar-brand' href="./index.html">
+            <a class='navbar-brand' href="./index.jsp">
               <img src="./images/logo.jpg" alt="">
             </a>
             <button type="button" class='navbar-toggle collapsed' data-toggle='collapse' data-target=''>
@@ -87,25 +87,27 @@
 					ResultSet rs = null;
 					
 					try{
-						String url = "jdbc:mysql://localhost:3306/og?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
-						String id = "root";                                                    // 사용자 계정
-						String pw = "1234";                                                // 사용자 계정의 패스워드
+						String sqlurl = "jdbc:mysql://localhost:3306/lws7402?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
+						String sqlid = "lws7402";                                       // 사용자 계정
+						String sqlpw = "online123";                                     // 사용자 계정의 패스워드
 						
 						Class.forName("com.mysql.jdbc.Driver");                       // 데이터베이스와 연동하기 위해 DriverManager에 등록한다.
-						conn=DriverManager.getConnection(url,id,pw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
+						conn=DriverManager.getConnection(sqlurl,sqlid,sqlpw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
 						
-						String sql = ("select * from bord where count="+number+" ");                        // sql 쿼리
+						String sql = ("select * from board where count="+number+" ");                        // sql 쿼리
 						pstmt = conn.prepareStatement(sql);                          // prepareStatement에서 해당 sql을 미리 컴파일한다.
 						
 						
 						rs = pstmt.executeQuery();                                        // 쿼리를 실행하고 결과를 ResultSet 객체에 담는다.
 						while(rs.next()){ 
+							String count = rs.getString("count");
 							String title = rs.getString("title");
-							String content = rs.getString("content");
+							String content = rs.getString("contents");
+							String board_name = rs.getString("board_name");
 							
 						%>
 						    
-						 	<form action = "rewriteSer.jsp" accept-charset="utf-8" name = "coment" method = "get">
+						 	<form action = "rewriteSer.jsp" accept-charset="utf-8" name = "coment" method = "get" >
 									<tr>
 										<th >제목
 										<td >
@@ -115,7 +117,7 @@
 									<tr>
 										<th>내용
 										<td >
-											<textarea name="contnet" rows="10" cols="100%" ><%=content%></textarea>
+											<textarea name="content" rows="10" cols="100%" ><%=content%></textarea>
 										</td>
 									</tr>
 									<tr>
@@ -125,7 +127,8 @@
 												<a href="javascript:history.back()" class="writeB" type="submit">취소</a>
 											</a>
 											<input type="submit" value="수정" class="writeB">
-											<input type="hidden" name="number" value="<%=number%>" >
+											<input type="hidden" name="number" value="<%=count%>" >
+											<input type="hidden" name="BName" value="<%=board_name%>" >
 										</td>
 									</tr>
 							

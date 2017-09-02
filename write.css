@@ -61,7 +61,7 @@ body {
 	text-align: center;
 }
 .bord{
-	margin:auto;
+	margin:10vh auto auto;
 	width: 70%;
 	text-align: center;
 }
@@ -79,6 +79,9 @@ table{
 	text-align: right;
 }
 
+.left{
+	float: left;
+}
 .writeB {
 	background-color:#0070af;
 	-moz-border-radius:13px;

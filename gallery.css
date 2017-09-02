@@ -43,8 +43,7 @@ body {
   padding: 0 2%;
 }
 .middle {
-	width: 100%;
-	min-height: 70vh;	
+	width: 100%;	
 	overflow-x:hidden;
 	overflow-y:hidden;
 	
@@ -52,37 +51,63 @@ body {
 	font-size: 2vmin;
 	padding: 5% 15% 5% 15%;
 }
-.gallery{
+.middle .gallery{
 	overflow: hidden;
 }
-.tableBox{
+.middle .tableBox{
 	border: 1px solid #D8D8D8;
 	width: 250px;
 	float: left;
 	margin : 1% 1% 1% 1% ;
 	overflow: hidden;
 }
-table{
+.middle table{
 	width: 210px;
 	height: 200px;
 	margin : 10% auto 10% auto;
 	overflow: hidden;
 }
-th{
+.middle th{
 	text-align: center;
 	overflow: hidden;
 	margin: auto;
 }
-td{
+.middle td{
 	padding-left: 10px;
 }
-.hr{
+.middle .hr{
 	height: 1px;
 	font-size: 1px;
 	padding: -1px -1px -1px -1px;
 }
 
 
+
+#boardPost .tFix{
+	margin: auto;
+	text-align: center;
+}
+th{
+	text-align: center;
+}
+#boardPost hr{
+	border-color: #0070af;
+}
+#boardPost .number{
+	width: 10%;
+}
+#boardPost .title{
+	width: 10%;
+}
+#boardPost .author{
+	width: 10%;
+}
+#boardPost .date{
+	width: 10%;
+}
+#boardPost .hit{
+	width: 10%;
+}
 .postImg{
 	min-height: 100px;
 	max-height: 70vh;

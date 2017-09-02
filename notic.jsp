@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>bord</title>
+    <title>board</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/index.js" ></script>
@@ -20,7 +20,7 @@
       <nav class='navbar navbar-default'>
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class='navbar-brand' href="./index.html">
+            <a class='navbar-brand' href="./index.jsp">
               <img src="./images/logo.jpg" alt="">
             </a>
             <button type="button" class='navbar-toggle collapsed' data-toggle='collapse' data-target=''>
@@ -38,7 +38,7 @@
                 </a>
               </li>
               <li class='menu'>
-                <a href="notic.jsp?Bname='notic'">
+                <a href="notic.jsp?Bname='notice'">
                   공지사항
                 </a>
               </li>
@@ -87,8 +87,8 @@
 			<table>
 				<!-- DB 호출 시작 -->
 				  <%
-						request.setCharacterEncoding("utf-8");
-						String Bname = request.getParameter("Bname");
+				request.setCharacterEncoding("utf-8");
+				String Bname = request.getParameter("Bname");
 						
 				//리퀘스트로 위에 넘긴 Get방식의 파라미터명을 써서 내용을 받는다.
 
@@ -96,15 +96,15 @@
 				PreparedStatement pstmt = null;
 				ResultSet rs = null;
 				
-				try{
-				String url = "jdbc:mysql://localhost:3306/og?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
-				String id = "root";                                                    // 사용자 계정
-				String pw = "1234";                                                // 사용자 계정의 패스워드
+
+				String url = "jdbc:mysql://localhost:3306/lws7402?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
+				String id = "lws7402";                                       // 사용자 계정
+				String pw = "online123";                                     // 사용자 계정의 패스워드
 				
 				Class.forName("com.mysql.jdbc.Driver");                       // 데이터베이스와 연동하기 위해 DriverManager에 등록한다.
 				conn=DriverManager.getConnection(url,id,pw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
 				
-				String sql = ("select * from bord where bord_name="+Bname+"");                        // sql 쿼리
+				String sql = ("select * from board where board_name="+Bname+"");                        // sql 쿼리
 				pstmt = conn.prepareStatement(sql);                          // prepareStatement에서 해당 sql을 미리 컴파일한다.
 				
 				
@@ -113,7 +113,7 @@
 				rs = pstmt.executeQuery();                                        // 쿼리를 실행하고 결과를 ResultSet 객체에 담는다.
 				while(rs.next()){ 
 					String title = rs.getString("title");
-					String content = rs.getString("content");
+					String content = rs.getString("contents");
 					String author = rs.getString("author");
 					String date = rs.getString("date");
 					String hit = rs.getString("hit");
@@ -133,15 +133,7 @@
 					</tr>
 				
 				    <%}
-					}catch(Exception e){                                                    // 예외가 발생하면 예외 상황을 처리한다.
-					e.printStackTrace();
-					out.println(" 테이블 호출에 실패했습니다.");
-					}finally{                                                            // 쿼리가 성공 또는 실패에 상관없이 사용한 자원을 해제 한다.  (순서중요)
-					if(rs != null) try{rs.close();}catch(SQLException sqle){}            // Resultset 객체 해제
-					if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}   // PreparedStatement 객체 해제
-					if(conn != null) try{conn.close();}catch(SQLException sqle){}   // Connection 해제
-					}
-					%>
+				%>
 			</table>
 			
 			<br>

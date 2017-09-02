@@ -20,7 +20,7 @@
       <nav class='navbar navbar-default'>
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class='navbar-brand' href="./index.html">
+            <a class='navbar-brand' href="./index.jsp">
               <img src="./images/logo.jpg" alt="">
             </a>
             <button type="button" class='navbar-toggle collapsed' data-toggle='collapse' data-target=''>
@@ -71,30 +71,52 @@
     </header>
     <!-- 최상단 메뉴바 end -->
 	
+	
+	
+	<script type="text/javascript">
+	function onLoadEvent() {
+		document.getElementById('boardPost').style.display = "none";
+	}
+	window.onload = onLoadEvent
+	
+function hiddenDiv(id) {
+	if(id==1){
+		document.getElementById('middle').style.display = "none";
+		document.getElementById('boardPost').style.display = "block";
+	}else {
+		document.getElementById('middle').style.display = "block";
+		document.getElementById('boardPost').style.display = "none";
+	}
+}
+</script>
+
+
+	
 	<!-- 게시판 출력 start -->
     <div class="middle" >
-    
+	        
+    <input type="image" src="./images/list_change02.jpg" onclick="hiddenDiv(1)">
+	<input type="image" src="./images/list_change01.jpg" onclick="hiddenDiv(2)">
 		<!-- post roof start -->
-		<div class="gallery">
+		<div class="gallery" id="middle">
+		
 			<!-- DB 호출 시작 -->
 			<%
 			request.setCharacterEncoding("utf-8");
 			String number = request.getParameter("number");
 			
 			//리퀘스트로 위에 넘긴 Get방식의 파라미터명을 써서 내용을 받는다.
-			if (number != null && number != "0" ) {		
-			
-				Connection conn = null;                                        // null로 초기화 한다.
+			Connection conn = null;                                        // null로 초기화 한다.
 				PreparedStatement pstmt = null;
 				ResultSet rs = null;
 				
 				try{
-					String url = "jdbc:mysql://localhost:3306/og?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
-					String id = "root";                                                    // 사용자 계정
-					String pw = "1234";                                                // 사용자 계정의 패스워드
+					String sqlurl = "jdbc:mysql://localhost:3306/lws7402?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
+					String sqlid = "lws7402";                                       // 사용자 계정
+					String sqlpw = "online123";                                     // 사용자 계정의 패스워드
 					
 					Class.forName("com.mysql.jdbc.Driver");                       // 데이터베이스와 연동하기 위해 DriverManager에 등록한다.
-					conn=DriverManager.getConnection(url,id,pw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
+					conn=DriverManager.getConnection(sqlurl,sqlid,sqlpw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
 					
 					String sql = ("select * from scholership");                        // sql 쿼리
 					pstmt = conn.prepareStatement(sql);                          // prepareStatement에서 해당 sql을 미리 컴파일한다.
@@ -142,70 +164,76 @@
 					if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}   // PreparedStatement 객체 해제
 					if(conn != null) try{conn.close();}catch(SQLException sqle){}   // Connection 해제
 				}
-			}else{
-				Connection conn = null;                                        // null로 초기화 한다.
-				PreparedStatement pstmt = null;
-				ResultSet rs = null;
-					
-					try{
-						String url = "jdbc:mysql://localhost:3306/og?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
-						String mysqlid = "root";                                                    // 사용자 계정
-						String mysqlpw = "1234";                                                // 사용자 계정의 패스워드
-						
-						Class.forName("com.mysql.jdbc.Driver");                       // 데이터베이스와 연동하기 위해 DriverManager에 등록한다.
-						conn=DriverManager.getConnection(url,mysqlid,mysqlpw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
-						
-						String sql = ("select * from scholership");                        // sql 쿼리
-						pstmt = conn.prepareStatement(sql);                          // prepareStatement에서 해당 sql을 미리 컴파일한다.
-						
-						
-						rs = pstmt.executeQuery();                                        // 쿼리를 실행하고 결과를 ResultSet 객체에 담는다.
-						while(rs.next()){ 
-							String name = rs.getString("name");
-							String money = rs.getString("money");
-							
-							%>
-							<div class="tableBox">
-							<!-- post view start -->
-							<table>
-								<tr>
-									<th class="poster" colspan="2"> <img alt="" src="./images/scalership001.jpg" class="postImg">
-								</tr>
-								<tr>
-									<th colspan="2">| <%=name %> |<br>
-								</tr>
-								<tr>
-									<th colspan="2"><hr>
-								</tr>
-								<tr>
-									<th>대상자
-									<td>대학생 및 고등학교
-								</tr>
-								<tr>
-									<th>혜택
-									<td><%=money %>
-								</tr>
-								<tr>
-									<th>기간
-									<td>수정중
-								</tr>
-							</table>
-							<!		-- post view end -->
-							</div>    
-						<%}
-						}catch(Exception e){                                                    // 예외가 발생하면 예외 상황을 처리한다.
-						e.printStackTrace();
-						out.println(" 테이블 호출에 실패했습니다.");
-						}finally{                                                            // 쿼리가 성공 또는 실패에 상관없이 사용한 자원을 해제 한다.  (순서중요)
-						if(rs != null) try{rs.close();}catch(SQLException sqle){}            // Resultset 객체 해제
-						if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}   // PreparedStatement 객체 해제
-						if(conn != null) try{conn.close();}catch(SQLException sqle){}   // Connection 해제
-					}
-				}%>
+			%>
 		</div>
 		<!-- post roof end -->
     </div>
 	<!-- 게시판 출력 end -->
+	
+	
+	<!-- 게시판 출력 start -->
+    <div id="boardPost">
+    	<div class="bord">
+			<table class="tFix">
+				<tr>
+					<th class="number">번호
+					<th class="title">제목
+					<th class="author">혜택
+					<th class="date">날짜
+					<th class="hit">대상자
+				</tr>
+				<tr>
+					<th colspan="5"><hr>
+				</tr>
+				<!-- DB 호출 시작 -->
+				  <%
+				  
+				  try{
+					String sqlurl = "jdbc:mysql://localhost:3306/lws7402?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
+					String sqlid = "lws7402";                                       // 사용자 계정
+					String sqlpw = "online123";                                     // 사용자 계정의 패스워드
+						
+						Class.forName("com.mysql.jdbc.Driver");                       // 데이터베이스와 연동하기 위해 DriverManager에 등록한다.
+						conn=DriverManager.getConnection(sqlurl,sqlid,sqlpw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
+						
+						String sql = ("select * from scholership");                        // sql 쿼리
+						pstmt = conn.prepareStatement(sql);                          // prepareStatement에서 해당 sql을 미리 컴파일한다.
+						
+				int countn = 0;
+				rs = pstmt.executeQuery();                                        // 쿼리를 실행하고 결과를 ResultSet 객체에 담는다.
+				while(rs.next()){ 
+					String name = rs.getString("name");
+					String money = rs.getString("money");
+					String period = rs.getString("period");
+								
+					countn +=1;
+				%>
+					
+					<tr >
+						<td class="number"><%=countn%>
+						<td class="title"><a href="view.jsp?number='<%=name%>'"><%=name%></a>
+						<td class="author"><%=money%>
+						<td class="date"><%=period%>
+						<td class="hit">?
+					</tr>
+				
+				    <%}
+					}catch(Exception e){                                                    // 예외가 발생하면 예외 상황을 처리한다.
+						e.printStackTrace();
+						out.println(" 테이블 호출에 실패했습니다.");
+					}finally{                                                            // 쿼리가 성공 또는 실패에 상관없이 사용한 자원을 해제 한다.  (순서중요)
+						if(rs != null) try{rs.close();}catch(SQLException sqle){}            // Resultset 객체 해제
+						if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}   // PreparedStatement 객체 해제
+						if(conn != null) try{conn.close();}catch(SQLException sqle){}   // Connection 해제
+					}
+				%>
+			</table>
+		</div>
+		<br>
+		<br>
+    </div>
+	<!-- 게시판 출력 end -->
+	
 	
 	<br>
 	<br>

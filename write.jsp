@@ -39,21 +39,21 @@
 					ResultSet rs = null;
 					
 					try{
-						String url = "jdbc:mysql://localhost:3306/og?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
-						String id = "root";                                                    // 사용자 계정
-						String pw = "1234";                                                // 사용자 계정의 패스워드
+						String sqlurl = "jdbc:mysql://localhost:3306/lws7402?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
+						String sqlid = "lws7402";                                       // 사용자 계정
+						String sqlpw = "online123";                                     // 사용자 계정의 패스워드
 						
 						Class.forName("com.mysql.jdbc.Driver");                       // 데이터베이스와 연동하기 위해 DriverManager에 등록한다.
-						conn=DriverManager.getConnection(url,id,pw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
+						conn=DriverManager.getConnection(sqlurl,sqlid,sqlpw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
 						
-						String sql = ("select * from bord where number="+number+" ");                        // sql 쿼리
+						String sql = ("select * from board where number="+number+" ");                        // sql 쿼리
 						pstmt = conn.prepareStatement(sql);                          // prepareStatement에서 해당 sql을 미리 컴파일한다.
 						
 						
 						rs = pstmt.executeQuery();                                        // 쿼리를 실행하고 결과를 ResultSet 객체에 담는다.
 						while(rs.next()){ 
 							String title = rs.getString("title");
-							String content = rs.getString("content");
+							String content = rs.getString("contents");
 							String bord_name = rs.getString("bord_name");
 						%>
 						    
@@ -68,7 +68,7 @@
 									<tr>
 										<th>내용
 										<td >
-											<textarea name="contnet" rows="10" cols="100%" ><%=content%></textarea>
+											<textarea name="content" rows="10" cols="100%" ><%=content%></textarea>
 										</td>
 									</tr>
 									<tr>
@@ -105,7 +105,7 @@
 					<tr>
 						<th>내용
 						<td >
-							<textarea name="contnet" rows="10" cols="100%" class="left"></textarea>
+							<textarea name="content" rows="10" cols="100%" class="left"></textarea>
 						</td>
 					</tr>
 					<tr>

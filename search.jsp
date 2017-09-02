@@ -20,7 +20,7 @@
       <nav class='navbar navbar-default'>
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class='navbar-brand' href="./index.html">
+            <a class='navbar-brand' href="./index.jsp">
               <img src="./images/logo.jpg" alt="">
             </a>
             <button type="button" class='navbar-toggle collapsed' data-toggle='collapse' data-target=''>
@@ -38,7 +38,7 @@
                 </a>
               </li>
               <li class='menu'>
-                <a href="notic.jsp?Bname='notic'">
+                <a href="notic.jsp?Bname='notice'">
                   공지사항
                 </a>
               </li>
@@ -75,7 +75,7 @@
     <div class="middle" >
     
     	<!-- form start -->
-    	<form action="searchSer.jsp">
+    	<form action="searchSer.jsp" method="post" enctype="multipart/form-data" >
     	
     	<div class="bordName">
     		| 맞춤장학 
@@ -95,7 +95,7 @@
     					<td class="width80"  colspan="1"><input type="text" placeholder="학교명입력" class="width100" name="highschool" >
     					<td class="title" >학년
     					<td class="selectBox">
-    						<select>
+    						<select name="highschoolG">
     							<option >1</option>
     							<option>2</option>
     							<option>3</option>
@@ -104,10 +104,10 @@
     				</tr>
     				<tr>
     					<td class="title">대학교
-    					<td class="width80" colspan="1"><input type="text" placeholder="학교명입력" class="width100" name="universty">
+    					<td class="width80" colspan="1"><input type="text" placeholder="학교명입력" class="width100" name="universty" >
     					<td class="title">학년
     					<td class="selectBox" >
-    						<select>
+    						<select name="universtyG">
     							<option >1</option>
     							<option>2</option>
     							<option>3</option>
@@ -280,7 +280,7 @@
     				<tr>
     					<td class="title">소득구간(분위)
     					<td>
-    						<select name="inocme">
+    						<select name="income">
     							<option value="1">1</option>
     							<option value="1">2</option>
     							<option value="1">3</option>

@@ -22,14 +22,14 @@
 		ResultSet rs = null;
 		
 		try{
-			String sqlurl = "jdbc:mysql://localhost:3306/og?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
-			String sqlid = "root";                                                    // 사용자 계정
-			String sqlpw = "1234";                                                // 사용자 계정의 패스워드
+			String sqlurl = "jdbc:mysql://localhost/lws7402?useUnicode=true&characterEncoding=UTF-8";        // 사용하려는 데이터베이스명을 포함한 URL 기술
+			String sqlid = "lws7402";                                                    // 사용자 계정
+			String sqlpw = "online123";                                                // 사용자 계정의 패스워드
 			
 			Class.forName("com.mysql.jdbc.Driver");                       // 데이터베이스와 연동하기 위해 DriverManager에 등록한다.
 			conn=DriverManager.getConnection(sqlurl,sqlid,sqlpw);              // DriverManager 객체로부터 Connection 객체를 얻어온다.
 			
-			String sql ="select * from user where id =? and pw = ?";
+			String sql ="select * from membership where id =? and pw = ?";
 			pstmt=conn.prepareStatement(sql);
 			
 			pstmt.setString(1, loginid );
@@ -55,14 +55,15 @@
 			while(rs.next()){ 
 				String id = rs.getString("id");
 				String pw = rs.getString("pw");
-				
+				String authority = rs.getString("authority");
+
 				//--- 로그인 처리 ...   로그인 성공시 check 는 TRUE --
 				if(id != null){                                                        // 로그인 성공시
 
 
 
 				session.setAttribute("id", id);                 // 세션에 "id" 이름으로 id 등록
-
+				session.setAttribute("authority", authority);
 
 				//response.sendRedirect("index.jsp");               // 로그인 성공 메인페이지 이동
 				%><script>
